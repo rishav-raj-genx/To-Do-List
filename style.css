@@ -1,0 +1,147 @@
+* {
+  border: 0;
+  margin: 0;
+  text-align: center;
+}
+body{
+  background-color: rgb(222, 221, 221);
+
+}
+main {
+  width: 50vw;
+  height: 90vh;
+  margin: auto;
+  border-radius: 3rem;
+  margin-top: 5rem;
+  background-color: antiquewhite;
+}
+
+header {
+  margin: auto;
+  width: 40vw;
+  padding: 4% 0 0 0;
+}
+
+.inputy {
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-top: 1px solid orangered;
+  border-bottom: 1px solid orangered;
+  width: 45vw;
+  padding-bottom: 1.7rem;
+  padding-top: 1.7rem;
+}
+
+.inputy input {
+  font-size: large;
+  text-align: center;
+  border: 1px solid rebeccapurple;
+  border-right: 0;
+  border-radius: 2rem;
+  padding: 1rem 1.5rem;
+  width: 34vw;
+  height: 2vh;
+}
+
+.button {
+  padding: 1.1rem 2rem;
+  color: white;
+  font-size: large;
+  border-radius: 2rem;
+  background-color: orangered;
+  position: relative;
+  margin-top: 2rem;
+
+}
+
+ol {
+  width: 80%;
+  margin: auto;
+  border: 1px solid orangered;
+  border-radius: 3rem;
+  height: 55%;
+  padding: 1rem 4rem;
+  overflow: scroll;
+}
+
+ol li {
+  font-size: 1.5rem;
+  font-family: cursive;
+  border-bottom: 1px solid orangered;
+  padding: 1rem 0.2rem;
+  border-right: 1px solid orangered;
+  border-bottom-right-radius: 20px;
+  margin: 0 0 1%;
+  /* display: flex; */
+  justify-content: end;
+  padding-right: 2rem;
+  text-align: left;
+}
+
+ol li p{
+  overflow: scroll;
+}
+.del {
+  border-radius: 2rem;
+  background-color: rgb(246, 49, 49);
+  color: white;
+  padding: 0.5rem 5%;
+  margin-left: 70%;
+  font-size: large;
+}
+
+@media (max-width: 700px){
+
+  main {
+  width: 80vw;
+  height: 90vh;
+  margin: auto;
+  border-radius: 3rem;
+  margin-top: 5rem;
+  background-color: antiquewhite;
+}
+
+ol {
+  width: 40%;
+  margin: auto;
+  border: 1px solid orangered;
+  border-radius: 3rem;
+  height: 40%;
+  padding: 1rem 4rem;
+  overflow: scroll;
+}
+.button {
+  padding: 1.1rem 2rem;
+  color: white;
+  font-size: large;
+  border-radius: 2rem;
+  background-color: orangered;
+  position: relative;
+  margin-top: 2rem;
+}
+
+}
+@media (max-width: 1200px){
+
+ol {
+  width: 60%;
+  margin: auto;
+  border: 1px solid orangered;
+  border-radius: 3rem;
+  margin-top: 2rem;
+
+  height: 50%;
+  padding: 1rem 4rem;
+  overflow: scroll;
+}
+
+.button {
+  padding: 1.1rem 2rem;
+  color: white;
+  font-size: large;
+  border-radius: 2rem;
+  background-color: orangered;
+  position: relative;
+}
+}
