@@ -1,147 +1,210 @@
-* {
-  border: 0;
-  margin: 0;
-  text-align: center;
+:root {
+  /* Light Theme (Default) */
+  --primary-color: #6a11cb;
+  --secondary-color: #2575fc;
+  --text-color: #333;
+  --bg-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --input-bg: #f0f2f5;
+  --input-focus-bg: #fff;
+  --li-bg: white;
+  --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --border-radius: 20px;
 }
-body{
-  background-color: rgb(196, 105, 105);
+[data-theme="dark"] {
+  --primary-color: #a18cd1;
+  --secondary-color: #fbc2eb; /* Softer secondary for dark mode */
+  --text-color: #f0f0f0;
+  --bg-gradient: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  --glass-bg: rgba(20, 20, 20, 0.85); /* Darker glass */
+  --input-bg: #2c3e50;
+  --input-focus-bg: #34495e;
+  --li-bg: #2c3e50;
+  --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+}
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.3s ease, color 0.3s ease; /* Smooth theme transition */
 }
+
+body {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+}
+
 main {
-  width: 50vw;
-  height: 90vh;
-  margin: auto;
-  border-radius: 3rem;
-  margin-top: 5rem;
-  background-color: antiquewhite;
+  width: 90%;
+  max-width: 500px;
+  background: var(--glass-bg);
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px); /* Enhance glass effect */
+  -webkit-backdrop-filter: blur(10px);
 }
 
 header {
-  margin: auto;
-  width: 40vw;
-  padding: 4% 0 0 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  text-align: center;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+
+#theme-toggle {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+#theme-toggle:hover {
+  transform: translateY(-50%) rotate(20deg);
+  background: rgba(255,255,255,0.1);
 }
 
 .inputy {
-  margin: auto;
-  margin-top: 2rem;
+  display: flex;
+  gap: 10px;
   margin-bottom: 2rem;
-  border-top: 1px solid orangered;
-  border-bottom: 1px solid orangered;
-  width: 45vw;
-  padding-bottom: 1.7rem;
-  padding-top: 1.7rem;
 }
 
 .inputy input {
-  font-size: large;
-  text-align: center;
-  border: 1px solid rebeccapurple;
-  border-right: 0;
-  border-radius: 2rem;
-  padding: 1rem 1.5rem;
-  width: 34vw;
-  height: 2vh;
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  background: var(--input-bg);
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
 }
 
-.button {
-  padding: 1.1rem 2rem;
-  color: white;
-  font-size: large;
-  border-radius: 2rem;
-  background-color: orangered;
-  position: relative;
-  margin-top: 2rem;
+.inputy input:focus {
+  border-color: var(--secondary-color);
+  background: var(--input-focus-bg);
+  box-shadow: 0 0 0 4px rgba(37, 117, 252, 0.1);
+}
 
+.inputy button {
+  padding: 12px 25px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white; /* Keep white for contrast on colored button */
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.inputy button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(37, 117, 252, 0.4);
+}
+
+.inputy button:active {
+  transform: translateY(0);
 }
 
 ol {
-  width: 80%;
-  margin: auto;
-  border: 1px solid orangered;
-  border-radius: 3rem;
-  height: 55%;
-  padding: 1rem 4rem;
-  overflow: scroll;
+  list-style: none;
+  padding: 0;
+  flex: 1;
+  overflow-y: auto;
+  max-height: 50vh;
 }
 
-ol li {
-  font-size: 1.5rem;
-  font-family: cursive;
-  border-bottom: 1px solid orangered;
-  padding: 1rem 0.2rem;
-  border-right: 1px solid orangered;
-  border-bottom-right-radius: 20px;
-  margin: 0 0 1%;
-  /* display: flex; */
-  justify-content: end;
-  padding-right: 2rem;
-  text-align: left;
+/* Scrollbar styling */
+ol::-webkit-scrollbar {
+  width: 6px;
+}
+ol::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
 }
 
-ol li p{
-  overflow: scroll;
+li {
+  background: var(--li-bg);
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  animation: slideIn 0.3s ease-out forwards;
+  transition: transform 0.2s, background 0.3s;
+  border-left: 5px solid var(--secondary-color);
+  color: var(--text-color);
 }
-.del {
-  border-radius: 2rem;
-  background-color: rgb(246, 49, 49);
+
+li:hover {
+  transform: translateX(5px);
+}
+
+li .del {
+  background: #ff4757;
   color: white;
-  padding: 0.5rem 5%;
-  margin-left: 70%;
-  font-size: large;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.2s;
 }
 
-@media (max-width: 700px){
+li .del:hover {
+  background: #ff6b81;
+}
 
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
   main {
-  width: 80vw;
-  height: 90vh;
-  margin: auto;
-  border-radius: 3rem;
-  margin-top: 5rem;
-  background-color: antiquewhite;
-}
-
-ol {
-  width: 40%;
-  margin: auto;
-  border: 1px solid orangered;
-  border-radius: 3rem;
-  height: 40%;
-  padding: 1rem 4rem;
-  overflow: scroll;
-}
-.button {
-  padding: 1.1rem 2rem;
-  color: white;
-  font-size: large;
-  border-radius: 2rem;
-  background-color: orangered;
-  position: relative;
-  margin-top: 2rem;
-}
-
-}
-@media (max-width: 1200px){
-
-ol {
-  width: 60%;
-  margin: auto;
-  border: 1px solid orangered;
-  border-radius: 3rem;
-  margin-top: 2rem;
-
-  height: 50%;
-  padding: 1rem 4rem;
-  overflow: scroll;
-}
-
-.button {
-  padding: 1.1rem 2rem;
-  color: white;
-  font-size: large;
-  border-radius: 2rem;
-  background-color: orangered;
-  position: relative;
-}
+    width: 95%;
+    padding: 1.5rem;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  li {
+    font-size: 0.95rem;
+  }
 }
